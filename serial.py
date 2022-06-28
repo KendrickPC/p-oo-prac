@@ -20,12 +20,27 @@ class SerialGenerator:
     100
     """
     def __init__(self, start=100):
-        self.start = self.next = start
+        """Make a new generator/ JS Constructor with start default at 100"""
+        self.start = start
+        self.next = start + 1
 
     def __repr__(self):
+        """Show representation of class when printed"""
         return f"<SerialGenerator start={self.start}>"
 
-    
+    def generate(self):
+        """Return next number/int in sequence"""
+        self.next += 1
+        return self.next-1
+
+    def reset(self):
+        self.next = self.start
 
 test = SerialGenerator()
-print(test)
+print(test.generate())
+print(test.generate())
+print(test.generate())
+print(test.generate())
+print(test.generate())
+test.reset()
+print(test.generate())
